@@ -72,6 +72,20 @@ int main() {
 		0.0f, 0.5f * float(sqrt(3)) * 2 / 3, 0.0f,
 	};
 
+
+	// Vertices for square 	
+	// GLfloat vertices[] = 
+	// {
+	// 	-0.5f, -0.5f, 0.0f,  // left corner
+	// 	0.5f, -0.5f, 0.0f, // right corner
+	// 	0.5f, 0.5f, 0.0f, // top right corner
+	// 	-0.5f, -0.5f, 0.0f,  // left corner
+	// 	0.5f, 0.5f, 0.0f, // top right corner
+	// 	-0.5f, 0.5f, 0.0f, // top left corner
+
+	// };
+	// also add glDrawArrays(GL_TRIANGLES, 0, 6); later
+
 	// reference integer for vertex object buffer
 	GLuint VAO, VBO; // VBO is an array of references
 
