@@ -2,3 +2,4 @@
 
 
 ![Opis obrazka](images/triangle.png)
+![Opis obrazka](images/square.png)
