@@ -27,11 +27,8 @@ int main() {
 	// Using CORE profile ( only modern functions)
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-	
-	// width = 400 , height = 225;
-	// GLFWwindow* window = glfwCreateWindow(400,225,"OpenGL", NULL, NULL);
-	// GLFWwindow 800 by 800 pixels, named "OpenGl"
-	 GLFWwindow* window = glfwCreateWindow(800, 800,"OpenGL", NULL, NULL);
+	// Create window
+	GLFWwindow* window = glfwCreateWindow(800, 800, "OpenGL", NULL, NULL);
 
 	// Check if the window fails to create
 	if (window == NULL)
@@ -65,8 +62,8 @@ int main() {
 
 	glDeleteShader(vertexShader);
 	glDeleteShader(fragmentShader);
-	// Vertices coordinates
 
+	// Vertices coordinates
 	GLfloat vertices[] =  // wierzcholki z kolorem, pozycja, texture
 	{
 		-0.5f, -0.5f * float(sqrt(3)) / 3, 0.0f,
@@ -74,8 +71,8 @@ int main() {
 		0.0f, 0.5f * float(sqrt(3)) * 2 / 3, 0.0f,
 		0.0f, 0.5f * float(sqrt(3)) * 2 / 3, 0.0f,
 	};
+
 	// reference integer for vertex object buffer
-	
 	GLuint VAO, VBO; // VBO is an array of references
 
 	glGenVertexArrays(1, &VAO);
@@ -88,41 +85,16 @@ int main() {
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
 	// where to find vbos and how to interpret them
-	glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE,3*sizeof(float),(void*)0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
-	
-	// Orange color:
-	//glClearColor(1.0f, 0.5f, 0.0f, 1.0f);
-	// Blue color:
-	//glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
 
-	// Clean the back buffer and assign the new color to it
-	//glClear(GL_COLOR_BUFFER_BIT);
-	// Swap the back buffer with the front buffer
-	//glfwSwapBuffers(window);
-
-	// variables needed to change colour smoothly
-	/*float previous_time = float(glfwGetTime());
-	float angle = 0.0f;*/
 	// Main while loop
 	while (!glfwWindowShouldClose(window))
 	{
 		// All of the GLFW events
-		//if (glfwGetTime())
-		//{
-		//	float time = float(glfwGetTime());
-		//	if (time - previous_time >= 0.1f) {
-
-		//		angle += 0.1f;
-		//		previous_time = time;
-		//	}
-		//}
-		//glClearColor(float(sin(angle)), float(cos(angle)), float(tan(angle)), 1.0f);
-		//glClear(GL_COLOR_BUFFER_BIT);
-		//glfwSwapBuffers(window); // this function flickers colors
 		glClearColor(0.0f, 0.5f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
@@ -133,7 +105,7 @@ int main() {
 
 		glfwPollEvents();
 	}
-	glDeleteVertexArrays(1,&VAO);
+	glDeleteVertexArrays(1, &VAO);
 	glDeleteBuffers(1, &VBO);
 	glDeleteProgram(shaderProgram);
 	// Delete window before ending the program
